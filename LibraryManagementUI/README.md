@@ -1,7 +1,24 @@
-# React + Vite
+# Library Management System - UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A React-based frontend for the Library Management System, built with Vite.
 
+## Getting Started
+
+Install dependencies:
+
+    npm install
+
+Start the dev server:
+
+    npm run dev
+
+Build for production:
+
+    npm run build
+
+Preview the production build:
+
+    npm run preview
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
