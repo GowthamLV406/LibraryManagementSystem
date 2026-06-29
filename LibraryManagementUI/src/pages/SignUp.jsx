@@ -265,5 +265,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
-//This is to test the PR
