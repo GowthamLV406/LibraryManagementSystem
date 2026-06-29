@@ -1,4 +1,8 @@
-# React + Vite
+# Library Management System - UI
+
+A React-based frontend for the Library Management System, built with Vite.
+
+## Getting Started
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
