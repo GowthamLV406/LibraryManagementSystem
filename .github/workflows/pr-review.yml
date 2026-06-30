@@ -1,0 +1,39 @@
+name: AI PR Code Review
+ 
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - Development
+ 
+permissions:
+  pull-requests: write
+  contents: read
+ 
+jobs:
+  ai-code-review:
+    name: C# Code Review (Azure OpenAI)
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+ 
+      - name: Set up Python
+        uses: actions/setup-python@v5.6.0
+        with:
+          python-version: "3.11"
+ 
+      - name: Install dependencies
+        run: pip install -r .github/scripts/requirements.txt
+ 
+      - name: Run AI code review
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          AOAI_ENDPOINT: ${{ secrets.AOAI_ENDPOINT }}
+          AOAI_API_KEY: ${{ secrets.AOAI_API_KEY }}
+          AOAI_DEPLOYMENT: ${{ secrets.AOAI_DEPLOYMENT }}
+        run: python .github/scripts/pr_review.py
